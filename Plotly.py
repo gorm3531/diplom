@@ -20,18 +20,18 @@ def wall():
     labels = ["US", "China", "European Union", "Russian Federation",
               "Brazil", "India",
               "Rest of World"]
-    # Create subplots: use 'domain' type for Pie subplot
+    # Создание подзаголовков: используйте тип "domain" для кругового подзаголовка
     fig = make_subplots(rows=1, cols=2, specs=
     [[{'type': 'domain'}, {'type': 'domain'}]])
     fig.add_trace(go.Pie(labels=labels, values=[16, 15, 12, 6, 5, 4, 42], name="GHG Emissions"),
                   1, 1)
     fig.add_trace(go.Pie(labels=labels, values=[27, 11, 25, 8, 1, 3, 25], name="CO2 Emissions"),
                   1, 2)
-    # Use `hole` to create a donut-like pie chart
+    # Используйте `hole` для создания круговой диаграммы, похожей на пончик
     fig.update_traces(hole=.4, hoverinfo="label+percent+name")
     fig.update_layout(
         title_text="Global Emissions 1990-2011",
-        # Add annotations in the center of the donut pies.
+        # Добавьте надписи в центр пирожков с пончиками.
         annotations=[dict(text='GHG', x=0.18, y=0.5, font_size=20, showarrow=False),
                      dict(text='CO2', x=0.82, y=0.5, font_size=20, showarrow=False)])
     fig.show()
@@ -79,7 +79,7 @@ def scatlay():
     random_y0 = np.random.randn(N) + 5
     random_y1 = np.random.randn(N)
     random_y2 = np.random.randn(N) - 5
-    # Create traces
+    # Создание следов
     trace0 = go.Scatter(x=random_x, y=random_y0, mode='markers', name='markers')
     trace1 = go.Scatter(x=random_x, y=random_y1, mode='lines+markers', name='lines+markers')
     trace2 = go.Scatter(x=random_x, y=random_y2, mode='lines', name='lines')
@@ -165,11 +165,14 @@ def time_():
 
 #time_()
 
-#import plotly.graph_objs as go
-from datetime import datetime
+
 
 
 #График OHLC(Open-High-Low-Close)
+
+#import plotly.graph_objs as go
+from datetime import datetime
+
 
 def ohlc():
     open_data = [33.0, 33.3, 33.5, 33.0, 34.1]
